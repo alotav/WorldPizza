@@ -23,4 +23,18 @@ var btnMenuOpen = document.getElementById("btnMenuOpen"),
 
     
     
-    
+// SLIDER PRODUCTOS
+
+// Tener en cuenta, con querySelector, llamamos a la clase con "."
+var contenedor = document.querySelector(".slider");
+    btnIzquierdo = document.getElementById("btn-izquierda"),
+    btnDerecho = document.getElementById("btn-derecha");
+
+    // EVENTO PARA BOTON DERECHO:
+    btnDerecho.addEventListener("click", function(){
+        contenedor.scrollLeft += contenedor.offsetWidth;
+    });
+
+    btnIzquierdo.addEventListener("click", function(){
+        contenedor.scrollLeft -= contenedor.offsetWidth;
+    });

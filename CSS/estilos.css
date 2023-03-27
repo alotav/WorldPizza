@@ -240,34 +240,6 @@ body{
 
 
 
-
-
-
-
-
-/* MEDIA QUERY */
-@media screen and (max-width: 850px){
-    /* SLIDER PRODUCTOS */
-    .container-productos{
-        flex-direction: column;
-    }
-
-    .descripcion-productos{
-        width: 70%;
-        order: 1; /*Para q este en primer lugar, aunque podriamos usar column-reverse.*/
-    }
-
-    .descripcion-productos .btn{
-        padding: 10px 20px;
-        margin-bottom: 20px;
-    }
-    .descripcion-productos .btn:hover{
-        padding: 10px 30px;
-    }
-
-}
-
-
 /* SECCION DE SERVICIOS: desplegada con grid */
 #servicios{ 
     height: 100vh;
@@ -377,9 +349,187 @@ body{
 }
 
 
+/* SECCION DE EQUIPO */
+
+#equipo{
+    height: 100vh;
+    display: flex;
+}
+
+.persona{
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s;
+}
+
+.persona:hover{
+    flex-grow: 3;
+}
+ 
+.persona-imagen{
+    height: 100%;
+    /* Centramos las img */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* B & N */
+    filter: grayscale(80%);
+}
+
+.persona:hover .persona-imagen{
+    filter: grayscale(0);
+}
+
+.persona-info{
+    position:absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.1s;
+}
+
+.persona:hover .persona-info{
+    opacity: 1;
+    bottom: 60px;
+    transition-delay: 0.3s;
+}
+
+
+.persona-info h2{
+    font-size: 30px;
+    color: black;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+
+.persona-info p{
+    color: var(--color-secundario);
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 3px rgba(255,0,0,0.5);
+
+}
+
+.social-media a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color:white;
+    background: var(--color-secundario);
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+/*  EFECTO DE TRANSICION  */
+.social-media a:hover{
+    color: var(--color-secundario);
+    background: transparent;
+    scale: 2;
+}
 
 
 
+/* SECCION DE INGREDIENTES */
+#ingredientes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingre{
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+}
+
+.imagen-ingre{
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.info-ingre{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    transition: all 0.3s;
+}
+
+.info-ingre p{
+    font-size: 28px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.info-ingre:hover{
+    background: rgba(0,0,0,0.25);
+}
+
+.info-ingre:hover p{
+    transform: translateY(10px);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERY */
+@media screen and (max-width: 850px){
+    /* SLIDER PRODUCTOS */
+    .container-productos{
+        flex-direction: column;
+    }
+
+    .descripcion-productos{
+        width: 70%;
+        order: 1; /*Para q este en primer lugar, aunque podriamos usar column-reverse.*/
+    }
+
+    .descripcion-productos .btn{
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+    .descripcion-productos .btn:hover{
+        padding: 10px 30px;
+    }
+
+    /* SERVICIOS RESPONSIVE: */
+    .servicios-container{
+        margin-top: 50px;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "ingredientes  rapidez"
+                             "calidad       delivery";
+    }
+
+    .imagen-central{
+        display: none;
+    }
+
+}
 
 
 
@@ -450,4 +600,12 @@ body{
     .descripcion-productos H2{
         font-size: 3vw;
     }
+
+
+    /* INGREDIENTES */
+    .info-ingre .txt-ingre{
+        display: none;
+    }
+
+
 }

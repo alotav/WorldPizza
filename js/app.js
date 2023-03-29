@@ -89,6 +89,54 @@ var contenedor = document.querySelector(".slider");
     }
 
 
-
-
     formulario.addEventListener("submit", validar);
+
+    
+    
+// BOTON SCROLL: //
+
+var btnTop = document.getElementById("btn-top"),
+    logo = document.getElementById("logo");
+
+// Detectar scroll:
+
+// listener a la ventana
+window.addEventListener("scroll", function(){
+    //documentElement verifica al doc html
+    //scrollTop es el valor en px q se realizo en el doc html
+    var scroll = document.documentElement.scrollTop;
+
+    // obtenemos el tamano completo del html
+    var fullSize = document.documentElement.offsetHeight;
+    // obtenemos el tamano completo del viewport (pantalla)
+    var sizeVP = document.documentElement.clientHeight;
+
+    if(scroll > 100){
+        btnTop.classList.add("show");
+    }else{
+        btnTop.classList.remove("show");
+    }
+
+
+    // MODIFICAMOS POSICION DEL BTN CUANDO LLEGA AL FINAL DE PAGINA
+    if(fullSize == (scroll + sizeVP)){
+        btnTop.classList.add("scrollFinal");
+    }else{
+        btnTop.classList.remove("scrollFinal");
+    }
+
+});
+
+
+    // BETECTAMOS CLICK PARA SUBIR
+
+    btnTop.addEventListener("click", function () {
+        //valores de X,Y
+        window.scrollTo(0,0);
+    });
+
+    // DETECTAMOS CLICK EN EL LOGO
+
+    logo.addEventListener("click", function(){
+        window.scrollTo(0,0);
+    });
